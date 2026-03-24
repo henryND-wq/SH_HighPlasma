@@ -247,7 +247,13 @@
                         bdayBook: getDynamicIndex(extractedHeaders, ['生日 Giftcard Book', '生日Giftcard Book'], 20), // U
                         bdayDelta: getDynamicIndex(extractedHeaders, ['生日 Giftcard 三天增加', '生日Giftcard三天增加'], 21), // V
                         plasmaBook: getDynamicIndex(extractedHeaders, ['Plasma Giftcard Book', 'PlasmaGiftcard Book'], 22), // W
-                        plasmaDelta: getDynamicIndex(extractedHeaders, ['Plasma Giftcard 三天增加', 'PlasmaGiftcard三天增加'], 23) // X
+                        plasmaDelta: getDynamicIndex(extractedHeaders, ['Plasma Giftcard 三天增加', 'PlasmaGiftcard三天增加'], 23), // X
+
+                        // ICB 激活
+                        icbRsvp: getDynamicIndex(extractedHeaders, ['RSVP', 'rsvp'], 24), // Y
+                        icbBook: getDynamicIndex(extractedHeaders, ['Book', 'book'], 25), // Z
+                        icbShow: getDynamicIndex(extractedHeaders, ['Show', 'show'], 26), // AA
+                        icbSign: getDynamicIndex(extractedHeaders, ['Sign', 'sign'], 27) // AB
                     };
                     setColMap(mappedIndices);
 
@@ -318,7 +324,13 @@
                     { id: 'bdayBook', index: colMap.bdayBook, name: '生日 Giftcard Book', format: 'number', headerClass: 'bg-yellow-100 text-yellow-900 border-t border-yellow-200' },
                     { id: 'bdayDelta', index: colMap.bdayDelta, name: '生日 Giftcard 三天增加', format: 'number', headerClass: 'bg-yellow-100 text-yellow-900 border-t border-yellow-200' },
                     { id: 'plasmaBook', index: colMap.plasmaBook, name: 'Plasma Giftcard Book', format: 'number', headerClass: 'bg-yellow-100 text-yellow-900 border-t border-yellow-200' },
-                    { id: 'plasmaDelta', index: colMap.plasmaDelta, name: 'Plasma Giftcard 三天增加', format: 'number', headerClass: 'bg-yellow-100 text-yellow-900 border-t border-yellow-200' }
+                    { id: 'plasmaDelta', index: colMap.plasmaDelta, name: 'Plasma Giftcard 三天增加', format: 'number', headerClass: 'bg-yellow-100 text-yellow-900 border-t border-yellow-200' },
+
+                    // ICB激活 (Grape purple) Group
+                    { id: 'icbRsvp', index: colMap.icbRsvp, name: 'RSVP', format: 'number', headerClass: 'bg-fuchsia-100 text-fuchsia-900 border-t border-fuchsia-200' },
+                    { id: 'icbBook', index: colMap.icbBook, name: 'Book', format: 'number', headerClass: 'bg-fuchsia-100 text-fuchsia-900 border-t border-fuchsia-200' },
+                    { id: 'icbShow', index: colMap.icbShow, name: 'Show', format: 'number', headerClass: 'bg-fuchsia-100 text-fuchsia-900 border-t border-fuchsia-200' },
+                    { id: 'icbSign', index: colMap.icbSign, name: 'Sign', format: 'number', headerClass: 'bg-fuchsia-100 text-fuchsia-900 border-t border-fuchsia-200' }
                 ].map(kpi => ({
                     ...kpi,
                     displayName: (headers[kpi.index] && headers[kpi.index].trim() !== '') ? headers[kpi.index].replace(/[\r\n]+/g, ' ').replace(/"/g, '') : kpi.name
@@ -822,8 +834,12 @@
                                         High Pexo PT/Head
                                     </th>
 
-                                    <th colSpan="4" className="bg-yellow-600 text-white text-center font-bold py-1.5 text-[11px] tracking-wide">
+                                    <th colSpan="4" className="bg-yellow-600 text-white text-center font-bold py-1.5 border-r border-yellow-700 text-[11px] tracking-wide">
                                         龍尾
+                                    </th>
+
+                                    <th colSpan="4" className="bg-fuchsia-700 text-white text-center font-bold py-1.5 text-[11px] tracking-wide">
+                                        ICB激活
                                     </th>
                                 </tr>
                                 
